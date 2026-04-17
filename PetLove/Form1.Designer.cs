@@ -29,9 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
@@ -51,14 +56,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtIdade = new System.Windows.Forms.TextBox();
             this.cbEspecie = new System.Windows.Forms.ComboBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -75,16 +76,61 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // label2
+            // panel2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Gold;
-            this.label2.Location = new System.Drawing.Point(28, 391);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 37);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Telefone:";
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Location = new System.Drawing.Point(446, 113);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(618, 44);
+            this.panel2.TabIndex = 14;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 17.2F, System.Drawing.FontStyle.Bold);
+            this.label12.ForeColor = System.Drawing.Color.Gold;
+            this.label12.Location = new System.Drawing.Point(524, 13);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(73, 31);
+            this.label12.TabIndex = 17;
+            this.label12.Text = "Idade";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 17.2F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.Color.Gold;
+            this.label11.Location = new System.Drawing.Point(353, 13);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(64, 31);
+            this.label11.TabIndex = 17;
+            this.label11.Text = "Raça";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 17.2F, System.Drawing.FontStyle.Bold);
+            this.label10.ForeColor = System.Drawing.Color.Gold;
+            this.label10.Location = new System.Drawing.Point(182, 13);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(92, 31);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Espécie";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 17.2F, System.Drawing.FontStyle.Bold);
+            this.label9.ForeColor = System.Drawing.Color.Gold;
+            this.label9.Location = new System.Drawing.Point(26, 13);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(79, 31);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Nome";
             // 
             // label4
             // 
@@ -108,9 +154,21 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Pet Love";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Gold;
+            this.label2.Location = new System.Drawing.Point(28, 391);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(134, 37);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Telefone:";
+            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.SteelBlue;
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnCadastrar);
@@ -164,7 +222,6 @@
             this.btnAtualizar.TabIndex = 1;
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.UseVisualStyleBackColor = false;
-            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // btnRemover
             // 
@@ -326,61 +383,15 @@
             this.cbEspecie.Size = new System.Drawing.Size(206, 23);
             this.cbEspecie.TabIndex = 11;
             // 
-            // panel2
+            // textBox1
             // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Location = new System.Drawing.Point(446, 113);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(618, 44);
-            this.panel2.TabIndex = 14;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 17.2F, System.Drawing.FontStyle.Bold);
-            this.label9.ForeColor = System.Drawing.Color.Gold;
-            this.label9.Location = new System.Drawing.Point(26, 13);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 31);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Nome";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 17.2F, System.Drawing.FontStyle.Bold);
-            this.label10.ForeColor = System.Drawing.Color.Gold;
-            this.label10.Location = new System.Drawing.Point(182, 13);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(92, 31);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Espécie";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 17.2F, System.Drawing.FontStyle.Bold);
-            this.label11.ForeColor = System.Drawing.Color.Gold;
-            this.label11.Location = new System.Drawing.Point(353, 13);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(64, 31);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "Raça";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 17.2F, System.Drawing.FontStyle.Bold);
-            this.label12.ForeColor = System.Drawing.Color.Gold;
-            this.label12.Location = new System.Drawing.Point(524, 13);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(73, 31);
-            this.label12.TabIndex = 17;
-            this.label12.Text = "Idade";
+            this.textBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.textBox1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold);
+            this.textBox1.ForeColor = System.Drawing.Color.Gold;
+            this.textBox1.Location = new System.Drawing.Point(35, 365);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(10, 23);
+            this.textBox1.TabIndex = 12;
             // 
             // Form1
             // 
@@ -406,10 +417,10 @@
             this.Text = "Pet Love - Registros";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -445,6 +456,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
