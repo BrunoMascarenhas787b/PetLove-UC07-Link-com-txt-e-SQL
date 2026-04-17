@@ -64,20 +64,12 @@ namespace PetLove
         }
 
         private void ConfigurarComponentes()
-        {
+        {   //Configuração do combo box e de cores 
             cbEspecie.Items.Clear();
             cbEspecie.Items.AddRange(new object[] { "Cachorro", "Gato" });
             cbEspecie.DropDownStyle = ComboBoxStyle.DropDownList;
-
-            // --- APLICANDO A COR ACTIVECAPTION ---
-            // Pega a cor exata do tema do seu Windows
             cbEspecie.BackColor = SystemColors.ActiveCaption;
-
-            // Como o ActiveCaption é um azul claro, o texto preto (ControlText) 
-            // costuma dar a melhor leitura
             cbEspecie.ForeColor = Color.Gold;
-
-            // Mantenha o Flat para a cor aparecer sem as bordas cinzas do Windows
             cbEspecie.FlatStyle = FlatStyle.Flat;
         }
 
@@ -98,7 +90,7 @@ namespace PetLove
                 item.SubItems.Add(p.Especie);
                 item.SubItems.Add(p.Raca);
 
-                // --- AJUSTE: Exibindo "Ano" ou "Anos" na lista ---
+                // Exibe anos no list view
                 string textoIdade = p.Idade == 1 ? "1 Ano" : p.Idade + " Anos";
                 item.SubItems.Add(textoIdade);
 
@@ -108,47 +100,43 @@ namespace PetLove
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            // Comando do try
             try
             {
+      
                 string nome = txtNome.Text;
                 string especie = cbEspecie.Text;
                 string raca = txtRaca.Text;
+
+                // Converte o texto da idade para um número inteiro (int)
                 int idade = int.Parse(txtIdade.Text);
 
+                // Procedure Insert aqui. envia os dados para o SQL
                 adapter.Insert(nome, especie, raca, idade);
 
+                // Cria um registro na classe de Log 
                 PetLog log = new PetLog { NomePet = nome, Acao = "Cadastro" };
                 MessageBox.Show(log.ToString(), "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                // Recarrega a list para mostrar o pet que acabou de ser salvo
                 AtualizarListView();
                 btnLimpar_Click(null, null);
             }
+            // Mensagem de erro ao tentar por dados não compativies
             catch (Exception ex) { MessageBox.Show("Erro ao cadastrar: Verifique a idade. " + ex.Message); }
-        }
-
-        private void btnAtualizar_Click(object sender, EventArgs e)
-        {
-            if (lvPets.SelectedItems.Count == 0) return;
-
-            try
-            {
-                int idValido = Convert.ToInt32(lvPets.SelectedItems[0].Tag);
-                PetLog log = new PetLog { NomePet = txtNome.Text, Acao = "Atualização" };
-                MessageBox.Show(log.ToString());
-
-                AtualizarListView();
-            }
-            catch (Exception ex) { MessageBox.Show("Erro ao atualizar: " + ex.Message); }
         }
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
+            // Verifica se há algum pet selecionado na lista se estiver vazio ele não faz nada e volt
             if (lvPets.SelectedItems.Count == 0) return;
 
+            //Tag de identificação do PET 
             int id = Convert.ToInt32(lvPets.SelectedItems[0].Tag);
-            //Mensagem ao deletar
+            // caixa de dialogo de confirmação da opção deletar
             if (MessageBox.Show("Deseja remover este pet?", "Aviso", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                // Chama o método Delete do banco de dados passando o ID para apagar a linha correta.
                 adapter.Delete(id);
                 AtualizarListView();
                 btnLimpar_Click(null, null);

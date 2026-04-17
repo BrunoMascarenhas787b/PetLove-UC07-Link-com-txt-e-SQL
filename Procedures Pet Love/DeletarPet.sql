@@ -1,0 +1,7 @@
+CREATE PROCEDURE DeletarPet
+    @id INT
+AS
+BEGIN
+    DELETE FROM pets WHERE id = @id;
+END
+GO
