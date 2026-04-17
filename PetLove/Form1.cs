@@ -37,7 +37,7 @@ namespace PetLove
             if (File.Exists(caminho))
             {
                 try
-                {    //comando pra ler tudo
+                {    //comando pra ler tud
                     string[] linhas = File.ReadAllLines(caminho);
                     foreach (string linha in linhas)
                     {
